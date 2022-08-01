@@ -6,7 +6,7 @@
 -->
 <html>
 	<head>
-		<title>Generic - Editorial by HTML5 UP</title>
+		<title>Bubble Sort</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -36,7 +36,7 @@
 										<h1>Bubble Sort</h1>
 									</header>
 
-									<span class="image main"><img src="images/pic11.jpg" alt="" /></span>
+									<!-- <span class="image main"><img src="bubble_sort.png" alt="" /></span> -->
 									
 
 									<p>Bubble sort is one of the most simple sorting algorithms. The algorithm works by comparing adjacent elements from a set of data, and swapping them if the first element is larger than the second. The algorithm iterates through the data set N times, where N is the size of the data set. As a result, this algorith is highly inefficient with larger data sets. Despite being elementary, and primarily used in teaching introductory classes in computer science, bubble sort has minor advantages: low memory, easy implementation, and a best case complexity of N iterations. However, the disadvantages of bubble sort makes it impractical in nearly all scenarios. Bubble sort is slowed further by large values towards the beginning of the data set which takes more swaps to move it to the back of the data set, and as previously stated the algorithm is increasingly inefficient with larger data sets.</p>
@@ -62,7 +62,7 @@ void bubbleSort(int array[]) {
 			// check if the first value is greater than the second value
 			if (array[j] > array[j + 1]) {
 				// store a temporary value
-				int temp = array[i];
+				int temp = array[j];
 
 				// swap the values being compared
 				array[j] = array[j + 1];
@@ -77,15 +77,59 @@ void bubbleSort(int array[]) {
 
 									<hr class="major" />
 
-									<h2>O Notation</h2>
-									<p>In the best case scenario, bubble sort's time complexity is O(n), only iterating through the entire list once. However, the best case scenario relies on the list already being sorted. The time complexity for the worst case scenario is O(n<sup>2</sup>), </p>
-									<p></p>
-
-									<hr class="major" />
-
-									<h2>Lorem aliquam bibendum</h2>
-									<p>Donec eget ex magna. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque venenatis dolor imperdiet dolor mattis sagittis. Praesent rutrum sem diam, vitae egestas enim auctor sit amet. Pellentesque leo mauris, consectetur id ipsum sit amet, fergiat. Pellentesque in mi eu massa lacinia malesuada et a elit. Donec urna ex, lacinia in purus ac, pretium pulvinar mauris. Curabitur sapien risus, commodo eget turpis at, elementum convallis elit. Pellentesque enim turpis, hendrerit.</p>
-									<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Etiam tristique libero eu nibh porttitor fermentum. Nullam venenatis erat id vehicula viverra. Nunc ultrices eros ut ultricies condimentum. Mauris risus lacus, blandit sit amet venenatis non, bibendum vitae dolor. Nunc lorem mauris, fringilla in aliquam at, euismod in lectus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In non lorem sit amet elit placerat maximus. Pellentesque aliquam maximus risus, vel sed vehicula.</p>
+									<h2>Big-O Notation</h2>
+									<p>In the best case scenario, bubble sort's time complexity is O(n), only iterating through the entire data set N - 1 times. However, the best-case scenario relies on the list already being sorted. The time complexity for the worst-case scenario is O(n<sup>2</sup>) because the inner and outer for loops (seen above) both have to iterate O(n) times.</p>
+									<p>Using the <a href="https://github.com/SvenWoltmann/sorting-algorithms-ultimate-guide/blob/main/src/main/java/eu/happycoders/sort/demos/UltimateTest.java">UltimateTest program</a> provided by happycoders.eu, we can see that bubble sort dramatically increases in runtime as the data size increases</p>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>N</th>
+													<th>Unsorted</th>
+													<th>Descending</th>
+													<th>Ascending</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>8,192</td>
+													<td>61.73 ms</td>
+													<td>35.18 ms</td>
+													<td>0.004 ms</td>
+												</tr>
+												<tr>
+													<td>16,384</td>
+													<td>294.64 ms</td>
+													<td>141.16 ms</td>
+													<td>0.008 ms</td>
+												</tr>
+												<tr>
+													<td>32,768</td>
+													<td>1272.07 ms</td>
+													<td>566.39 ms</td>
+													<td>0.015 ms</td>
+												</tr>
+												<tr>
+													<td>65,536</td>
+													<td>5,196.82 ms</td>
+													<td>2,267.85 ms</td>
+													<td>0.030 ms</td>
+												</tr>
+												<tr>
+													<td>131,072</td>
+													<td>20,903.54 ms</td>
+													<td>9,068.25 ms</td>
+													<td>0.060 ms</td>
+												</tr>
+												<tr>
+													<td>536,870,912</td>
+													<td>-</td>
+													<td>-</td>
+													<td>192.509 ms</td>
+												</tr>
+											</tbody>								
+										</table>
+									</div>
 
 								</section>
 
@@ -122,7 +166,6 @@ void bubbleSort(int array[]) {
 										<li>
 											<span class="opener">Sorting</span>
 											<ul>
-												<li><a href="#">Bogo Sort</a></li>
 												<li><a href="sort_bubble.html">Bubble Sort</a></li>
 												<li><a href="#">Merge Sort</a></li>
 												<li><a href="#">Quick Sort</a></li>
@@ -167,12 +210,6 @@ void bubbleSort(int array[]) {
 										<li class="icon solid fa-home">Boston, MA</li>
 									</ul>
 								</section>
-
-							<!-- Footer -->
-								<footer id="footer">
-									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-								</footer>
-
 						</div>
 					</div>
 
