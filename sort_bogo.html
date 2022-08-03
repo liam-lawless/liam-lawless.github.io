@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Bogo Sort</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<!-- <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a> -->
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/liam-lawless-a26a44200/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/liam-lawless" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+								</header>
+
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Bogo Sort</h1>
+									</header>
+
+									<!-- <span class="image main"><img src="bubble_sort.png" alt="" /></span> -->
+									
+
+									<p>Bogosort has no practical use, and is mainly a novelty sorting algorithm maybe used in education. However, Bogosort is succeeded by perhaps one of the strongest sorting algorithms, Quantum Bogosort, which "generates a random permutation of its input using a quantum source of entropy, checks if the list is sorted, and, if it is not, destroys the universe... the use of this algorithm will result in at least one surviving universe where the input was successfully sorted in O(n) time."</p>
+
+									<hr class="major" />
+
+									<!-- Sketch	 -->
+									<!-- Includes the p5js border around the sketch, allows code to be edited on the page -->
+									<!-- <h3 style="text-align:center;"></p><iframe src="https://editor.p5js.org/liam-lawless/full/AOX9uuRiV" width="600px" height="465px"></iframe></h3> -->
+									
+									<h3 style="text-align:center;">
+										<iframe src="src/sort/BogoSort_js/index.html" width="400px" height="465px">
+										</iframe>
+									</h3>
+
+									<h2>Algorithm</h2>
+									<p>The Bogosort "algorithm" consists of two lines of code, but requires a few helper methods or java.util libraries to successfully implement... for the odd reason that someone might want to use this algorithm.</p>
+									<pre>
+										<code>										
+void bogoSort(int[] array) {
+	while (!isSorted(array)) {
+		shuffle(array);
+	}
+}
+
+boolean isSorted(int[] array) {
+	for (int i = 0; i < array.length - 1; i++) {
+		if (array[i] > array[i+1]) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
+void swap(int[] array, int a, int b) {
+	int temp = array[a];
+	array[a] = array[b];
+	array[b] = temp;
+}
+
+void shuffle(int[] array) {
+	for (int i = 0; i <= array.length - 1; i++) {
+		swap(array, i, Math.round(math.random() * i));
+	}
+}
+
+
+										</code>
+									</pre>
+									
+
+									<hr class="major" />
+
+									<h2>Big-O Notation</h2>
+									<p>In the best case scenario, Bogo Sort has a time complexity of O(n), where it is given an already sorted list. Bogo Sort has an average time complexity of O(n * n!) because the array to be sorted has n! permutations, where n is the size of the array. It follows that the probability of a random permutation being sorted is (1 / n!). Since it takes O(n) to sort once and on average takes n!. Bogo Sort has a worst case time complexity of O(∞).</p>
+
+								</section>
+
+								<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright"> Sources: <br>
+										Wikipedia <a href="https://en.wikipedia.org/wiki/Bogosort">Bogosort</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<!-- <section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section> -->
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li>
+											<span class="opener">Sorting</span>
+											<ul>
+												<li><a href="sort_bogo.html">Bogo Sort</a></li>
+												<li><a href="sort_bubble.html">Bubble Sort</a></li>
+												<li><a href="#">Merge Sort</a></li>
+												<li><a href="#">Quick Sort</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Example</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<!-- <section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section> -->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>get_in_touch_para</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">lawless.l@northeastern.edu</a></li>
+										<li class="icon solid fa-home">Boston, MA</li>
+									</ul>
+								</section>
+						</div>
+					</div>
+
+			</div>
+			
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

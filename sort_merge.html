@@ -1,0 +1,226 @@
+<!DOCTYPE HTML>
+<!--
+	Editorial by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Merge Sort</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Main -->
+					<div id="main">
+						<div class="inner">
+
+							<!-- Header -->
+								<header id="header">
+									<!-- <a href="index.html" class="logo"><strong>Editorial</strong> by HTML5 UP</a> -->
+									<ul class="icons">
+										<li><a href="https://www.linkedin.com/in/liam-lawless-a26a44200/" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
+										<li><a href="https://github.com/liam-lawless" class="icon brands fa-github"><span class="label">Github</span></a></li>
+									</ul>
+								</header>
+
+
+							<!-- Content -->
+								<section>
+									<header class="main">
+										<h1>Merge Sort</h1>
+									</header>
+
+									<!-- <span class="image main"><img src="bubble_sort.png" alt="" /></span> -->
+									
+
+									<p>intro para</p>
+
+									<hr class="major" />
+
+									<!-- Sketch	 -->
+									<!-- Includes the p5js border around the sketch, allows code to be edited on the page -->
+									<!-- <h3 style="text-align:center;"></p><iframe src="https://editor.p5js.org/liam-lawless/full/AOX9uuRiV" width="600px" height="465px"></iframe></h3> -->
+									
+									<h3 style="text-align:center;">
+										<iframe src="src/sort/MergeSort_js/index.html" width="600px" height="400px">
+										</iframe>
+									</h3>
+
+									<h2>Algorithm</h2>
+									<p>baoifnoainofinoainf</p>
+									<pre>
+										<code>
+void merge(int[] array, int l, int m, int r) {
+
+	// split the array in to a left and right sub array
+	int subL =  m - l + 1; // size of the left sub array
+	int subR = r - m; // size of the right sub array
+	int[] arrL = new int[subL];
+	int[] arrR = new int[subR];
+
+	// populate the sub arrays
+	for (int i = 0; i < subL; i++) {
+		arrL[i] = array[l + i];
+	}
+
+	for (int i = 0; i < subR; i++) {
+		arrR[i] = array[m + i + 1];
+	}
+
+	// subarray indices
+	int i = 0;
+	int j = 0;
+	int k = l;
+
+	while (i < n1 && j < n2) {
+		if (arrL[i] <= arrR[j]) {
+			array[k] = arrL[i];
+			i++;
+		} else {
+			array[k] = arrR[j];
+			j++;
+		}
+
+		k++;
+	}
+
+	// Remaining left subarray elements
+	while ( i < subL) {
+		array[k] = arrL[i];
+		i++;
+		k++;
+	}
+
+	// Remaining right subarray elements
+	while (j < subR) {
+		array[k] = subR[j];
+		j++;
+		k++;
+	}
+}
+
+void mergeSort(int[] array, int l, int r) {
+	if (l < r) {
+
+		// middle point of array
+		int mid = l + (r - 1) / 2;
+
+		// Break down array into subarrays until at atomic value
+		mergeSort(array, l, m);
+		mergeSort(array, m + 1, r);
+
+		// put array back together
+		merge(array, l, m, r);
+	}
+}
+
+
+										</code>
+									</pre>
+									
+
+									<hr class="major" />
+
+									<h2>Big-O Notation</h2>
+									<p></p>
+
+								</section>
+
+								<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright"> Sources: <br>
+										Wikipedia <a href="https://en.wikipedia.org/wiki/Bogosort">Bogosort</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+				<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<!-- <section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section> -->
+
+							<!-- Menu -->
+								<nav id="menu">
+									<header class="major">
+										<h2>Menu</h2>
+									</header>
+									<ul>
+										<li><a href="index.html">Homepage</a></li>
+										<li><a href="generic.html">Generic</a></li>
+										<li><a href="elements.html">Elements</a></li>
+										<li>
+											<span class="opener">Sorting</span>
+											<ul>
+												<li><a href="sort_bogo.html">Bogo Sort</a></li>
+												<li><a href="sort_bubble.html">Bubble Sort</a></li>
+												<li><a href="sort_merge.html">Merge Sort</a></li>
+												<li><a href="#">Quick Sort</a></li>
+											</ul>
+										</li>
+										<li><a href="#">Example</a></li>
+									</ul>
+								</nav>
+
+							<!-- Section -->
+								<!-- <section>
+									<header class="major">
+										<h2>Ante interdum</h2>
+									</header>
+									<div class="mini-posts">
+										<article>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+										<article>
+											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+											<p>Aenean ornare velit lacus, ac varius enim lorem ullamcorper dolore aliquam.</p>
+										</article>
+									</div>
+									<ul class="actions">
+										<li><a href="#" class="button">More</a></li>
+									</ul>
+								</section> -->
+
+							<!-- Section -->
+								<section>
+									<header class="major">
+										<h2>Get in touch</h2>
+									</header>
+									<p>get_in_touch_para</p>
+									<ul class="contact">
+										<li class="icon solid fa-envelope"><a href="#">lawless.l@northeastern.edu</a></li>
+										<li class="icon solid fa-home">Boston, MA</li>
+									</ul>
+								</section>
+						</div>
+					</div>
+
+			</div>
+			
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/browser.min.js"></script>
+			<script src="assets/js/breakpoints.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>

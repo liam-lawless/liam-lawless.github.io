@@ -56,9 +56,9 @@
 									<p>Bubble sort can be implemented iteratively in very few lines of code.</p>
 									<pre>
 										<code>										
-void bubbleSort(int array[]) {
+void bubbleSort(int[] array) {
 	for (int i = 0; i < array.length - 1; i++) {
-		for (int j = 0; j < array.length - i; j++) {
+		for (int j = 0; j < array.length - i - 1; j++) {
 			// check if the first value is greater than the second value
 			if (array[j] > array[j + 1]) {
 				// store a temporary value
@@ -166,8 +166,9 @@ void bubbleSort(int array[]) {
 										<li>
 											<span class="opener">Sorting</span>
 											<ul>
+												<li><a href="sort_bogo.html">Bogo Sort</a></li>
 												<li><a href="sort_bubble.html">Bubble Sort</a></li>
-												<li><a href="#">Merge Sort</a></li>
+												<li><a href="sort_merge.html">Merge Sort</a></li>
 												<li><a href="#">Quick Sort</a></li>
 											</ul>
 										</li>
