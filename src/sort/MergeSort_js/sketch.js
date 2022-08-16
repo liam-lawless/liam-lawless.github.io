@@ -1,6 +1,5 @@
 let values = [];
 let clicks = 0;
-var sortSpeed;
 
 function setup() {
   createCanvas(600, 400);

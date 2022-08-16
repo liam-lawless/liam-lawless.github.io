@@ -39,7 +39,7 @@
 									<!-- <span class="image main"><img src="bubble_sort.png" alt="" /></span> -->
 									
 
-									<p>intro para</p>
+									<p>Merge Sort is a <a href="https://www.geeksforgeeks.org/divide-and-conquer-algorithm-introduction/">divide and conquer algorithm</a> that performs two distinct operations. First, the algorithm recursively breaks the data set down to its atomic level, the "divide" portion. If the portion of the data set that is being divided is empty or only has one element left, the recursion stops. Next, the atomic data is then merged together in a sorted order.</p>
 
 									<hr class="major" />
 
@@ -53,7 +53,9 @@
 									</h3>
 
 									<h2>Algorithm</h2>
-									<p>baoifnoainofinoainf</p>
+									<p>
+										The two-part algorithm can be implemented as seen below.
+									</p>
 									<pre>
 										<code>
 void merge(int[] array, int l, int m, int r) {
@@ -69,8 +71,8 @@ void merge(int[] array, int l, int m, int r) {
 		arrL[i] = array[l + i];
 	}
 
-	for (int i = 0; i < subR; i++) {
-		arrR[i] = array[m + i + 1];
+	for (int j = 0; j < subR; j++) {
+		arrR[j] = array[m + j + 1];
 	}
 
 	// subarray indices
@@ -78,7 +80,7 @@ void merge(int[] array, int l, int m, int r) {
 	int j = 0;
 	int k = l;
 
-	while (i < n1 && j < n2) {
+	while (i < subL && j < subR) {
 		if (arrL[i] <= arrR[j]) {
 			array[k] = arrL[i];
 			i++;
@@ -99,7 +101,7 @@ void merge(int[] array, int l, int m, int r) {
 
 	// Remaining right subarray elements
 	while (j < subR) {
-		array[k] = subR[j];
+		array[k] = arrR[j];
 		j++;
 		k++;
 	}
@@ -109,7 +111,7 @@ void mergeSort(int[] array, int l, int r) {
 	if (l < r) {
 
 		// middle point of array
-		int mid = l + (r - 1) / 2;
+		int m = (l + r) / 2;
 
 		// Break down array into subarrays until at atomic value
 		mergeSort(array, l, m);
@@ -119,8 +121,6 @@ void mergeSort(int[] array, int l, int r) {
 		merge(array, l, m, r);
 	}
 }
-
-
 										</code>
 									</pre>
 									
@@ -128,14 +128,108 @@ void mergeSort(int[] array, int l, int r) {
 									<hr class="major" />
 
 									<h2>Big-O Notation</h2>
-									<p></p>
+									<p>
+										Merge Sort's time complexity is not changed in any case in which the algorithm is applied. Therefore its best and worst case is O(n log(n)), making it a very efficient algorithm. Because the algorithm does not contain any loops, Merge Sort performs linearly. For example, if the input data size is doubled, the sorting time will be doubled. Merge Sort will have the same runtime regardless if the input data is already sorted or unsorted.
+									</p>
+									<p>Using the <a href="https://github.com/SvenWoltmann/sorting-algorithms-ultimate-guide/blob/main/src/main/java/eu/happycoders/sort/demos/UltimateTest.java">UltimateTest program</a>, we can measure the performance of Merge Sort operating under specific constraints. In this instance, arrays of lengths: 1,024, 2,048, 4,096, etc. were sorted to a maximum of 536,870,912 or until the operation took longer than 20 seconds (20,000 ms).  </p>
+									<div class="table-wrapper">
+										<table class="alt">
+											<thead>
+												<tr>
+													<th>N</th>
+													<th>Unsorted</th>
+													<th>Descending</th>
+													<th>Ascending</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<td>1,024</td>
+													<td>0.069 ms</td>
+													<td>0.032 ms</td>
+													<td>0.033 ms</td>
+												</tr>
+												<tr>
+													<td>2,048</td>
+													<td>0.141 ms</td>
+													<td>0.053 ms</td>
+													<td>0.056 ms</td>
+												</tr>
+												<tr>
+													<td>4,096</td>
+													<td>0.297 ms</td>
+													<td>0.109 ms</td>
+													<td>0.116 ms</td>
+												</tr>
+												<tr>
+													<td>8,192</td>
+													<td>0.604 ms</td>
+													<td>0.213 ms</td>
+													<td>0.228 ms</td>
+												</tr>
+												<tr>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+													<td>...</td>
+												</tr>
+												<tr>
+													<td>33,554,432</td>
+													<td>4,860.2 ms</td>
+													<td>1,954.7 ms</td>
+													<td>2,040.2 ms</td>
+												</tr>
+												<tr>
+													<td>67,108,864</td>
+													<td>9,623.2 ms</td>
+													<td>3,622.8 ms</td>
+													<td>3,815.7 ms</td>
+												</tr>
+												<tr>
+													<td>134,217,728</td>
+													<td>19,700.3 ms</td>
+													<td>6,542.1 ms</td>
+													<td>6,973.0 ms</td>
+												</tr>
+												<tr>
+													<td>268,435,456</td>
+													<td>40,852.4 ms</td>
+													<td>13,773.5 ms</td>
+													<td>14,708.2 ms</td>
+												</tr>
+											</tbody>								
+										</table>
+									</div>
+
+									<img style="display: block; margin-right: auto; margin-left: auto; border:6px solid rgb(245, 246, 247);" src="images/mergesort_runtime.png" alt="" width="661" height="384" />
+									<footer id="footer">
+										<p class="copyright" style="text-align:center">Image: happycoders.eu</p>
+									</footer>
+
+									<hr class="major" />
+
+									<h2>Applications</h2>
+									<h4>Advantages</h4>
+									<ul>
+										<li>Excels at sorting linked lists</li>
+										<li>Quicker for sorting larger data sets</li>
+									</ul>
+
+									<h4>Disadvantages</h4>
+									<ul>
+										<li>Slower for sorting smaller data sets</li>
+										<li>Requires additional memory space</li>
+									</ul>
 
 								</section>
 
 								<!-- Footer -->
 								<footer id="footer">
 									<p class="copyright"> Sources: <br>
-										Wikipedia <a href="https://en.wikipedia.org/wiki/Bogosort">Bogosort</a>.</p>
+										geeksforgeeks <a href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort</a>.<br>
+										happycoders <a href="https://www.geeksforgeeks.org/merge-sort/">Merge Sort - Algorithm, Source Code, Time Complexity</a>.
+									</p>
+										
 								</footer>
 
 						</div>
@@ -167,7 +261,7 @@ void mergeSort(int[] array, int l, int r) {
 												<li><a href="sort_bogo.html">Bogo Sort</a></li>
 												<li><a href="sort_bubble.html">Bubble Sort</a></li>
 												<li><a href="sort_merge.html">Merge Sort</a></li>
-												<li><a href="#">Quick Sort</a></li>
+												<li><a href="sort_quick.html">Quick Sort</a></li>
 											</ul>
 										</li>
 										<li><a href="#">Example</a></li>
